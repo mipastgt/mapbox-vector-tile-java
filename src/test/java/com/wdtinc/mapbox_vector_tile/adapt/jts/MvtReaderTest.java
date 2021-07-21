@@ -1,5 +1,17 @@
 package com.wdtinc.mapbox_vector_tile.adapt.jts;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+
+import org.junit.Test;
 import org.locationtech.jts.geom.Geometry;
 import org.locationtech.jts.geom.GeometryFactory;
 import org.locationtech.jts.geom.LineString;
@@ -7,20 +19,11 @@ import org.locationtech.jts.geom.MultiPolygon;
 import org.locationtech.jts.geom.Polygon;
 import org.locationtech.jts.geom.PrecisionModel;
 import org.locationtech.jts.geom.impl.PackedCoordinateSequenceFactory;
+import org.slf4j.LoggerFactory;
 
 import com.wdtinc.mapbox_vector_tile.adapt.jts.model.JtsLayer;
 import com.wdtinc.mapbox_vector_tile.adapt.jts.model.JtsMvt;
 import com.wdtinc.mapbox_vector_tile.util.JtsGeomStats;
-import org.junit.Test;
-import org.slf4j.LoggerFactory;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.*;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 /**
  * Test reading MVTs.
@@ -29,7 +32,6 @@ public final class MvtReaderTest {
 
     private static final double DOUBLE_DELTA = 1e-10;
     
-    private static final int NUMBER_OF_DIMENSIONS = 2;
     private static final int SRID = 0;
     
     @Test
@@ -150,8 +152,6 @@ public final class MvtReaderTest {
     
     private static GeometryFactory createGeometryFactory() {
         final PrecisionModel precisionModel = new PrecisionModel();
-        final PackedCoordinateSequenceFactory coordinateSequenceFactory = 
-                new PackedCoordinateSequenceFactory(PackedCoordinateSequenceFactory.DOUBLE, NUMBER_OF_DIMENSIONS);
-        return new GeometryFactory(precisionModel, SRID, coordinateSequenceFactory);
+        return new GeometryFactory(precisionModel, SRID, PackedCoordinateSequenceFactory.DOUBLE_FACTORY);
     }
 }
