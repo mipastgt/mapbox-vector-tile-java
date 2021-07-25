@@ -6,7 +6,7 @@
 
     <groupId>com.wdtinc</groupId>
     <artifactId>mapbox-vector-tile</artifactId>
-    <version>3.1.1</version>
+    <version>4.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Mapbox Vector Tiles - Java</name>
@@ -31,39 +31,47 @@
         </developer>
     </developers>
 
-    <scm>
-        <connection>scm:git:git://github.com/wdtinc/mapbox-vector-tile-java.git</connection>
-        <developerConnection>scm:git:ssh://github.com:wdtinc/mapbox-vector-tile-java.git</developerConnection>
-        <url>https://github.com/wdtinc/mapbox-vector-tile-java</url>
-    </scm>
+<!--     <scm> -->
+<!--         <connection>scm:git:git://github.com/wdtinc/mapbox-vector-tile-java.git</connection> -->
+<!--         <developerConnection>scm:git:ssh://github.com:wdtinc/mapbox-vector-tile-java.git</developerConnection> -->
+<!--         <url>https://github.com/wdtinc/mapbox-vector-tile-java</url> -->
+<!--     </scm> -->
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <repositories>
-        <repository>
-            <id>central</id>
-            <name>Maven Central</name>
-            <url>http://repo1.maven.org/maven2/</url>
-            <releases>
-                <enabled>true</enabled>
-                <checksumPolicy>warn</checksumPolicy>
-            </releases>
-        </repository>
-    </repositories>
+<!--     <repositories> -->
+<!--         <repository> -->
+<!--             <id>central</id> -->
+<!--             <name>Maven Central</name> -->
+<!--             <url>http://repo1.maven.org/maven2/</url> -->
+<!--             <releases> -->
+<!--                 <enabled>true</enabled> -->
+<!--                 <checksumPolicy>warn</checksumPolicy> -->
+<!--             </releases> -->
+<!--         </repository> -->
+<!--     </repositories> -->
+
+<!--     <distributionManagement> -->
+<!--         <snapshotRepository> -->
+<!--             <id>ossrh</id> -->
+<!--             <url>https://oss.sonatype.org/content/repositories/snapshots</url> -->
+<!--         </snapshotRepository> -->
+<!--         <repository> -->
+<!--             <id>ossrh</id> -->
+<!--             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url> -->
+<!--         </repository> -->
+<!--     </distributionManagement> -->
 
     <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
         <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>github</id>
+            <name>GitHub mipastgt Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/mipastgt/mapbox-vector-tile-java</url>
         </repository>
     </distributionManagement>
-
+    
     <build>
         <plugins>
             <plugin>
@@ -93,24 +101,24 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.3.0</version>
-                <configuration>
-                    <quiet>true</quiet>
-                    <show>public</show>
+<!--             <plugin> -->
+<!--                 <groupId>org.apache.maven.plugins</groupId> -->
+<!--                 <artifactId>maven-javadoc-plugin</artifactId> -->
+<!--                 <version>3.3.0</version> -->
+<!--                 <configuration> -->
+<!--                     <quiet>true</quiet> -->
+<!--                     <show>public</show> -->
 <!--                     <additionalparam>-Xdoclint:none</additionalparam> -->
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+<!--                 </configuration> -->
+<!--                 <executions> -->
+<!--                     <execution> -->
+<!--                         <id>attach-javadocs</id> -->
+<!--                         <goals> -->
+<!--                             <goal>jar</goal> -->
+<!--                         </goals> -->
+<!--                     </execution> -->
+<!--                 </executions> -->
+<!--             </plugin> -->
 <!--             <plugin> -->
 <!--                 <groupId>org.apache.maven.plugins</groupId> -->
 <!--                 <artifactId>maven-gpg-plugin</artifactId> -->
@@ -125,17 +133,17 @@
 <!--                     </execution> -->
 <!--                 </executions> -->
 <!--             </plugin> -->
-            <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.8</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                </configuration>
-            </plugin>
+<!--             <plugin> -->
+<!--                 <groupId>org.sonatype.plugins</groupId> -->
+<!--                 <artifactId>nexus-staging-maven-plugin</artifactId> -->
+<!--                 <version>1.6.8</version> -->
+<!--                 <extensions>true</extensions> -->
+<!--                 <configuration> -->
+<!--                     <serverId>ossrh</serverId> -->
+<!--                     <nexusUrl>https://oss.sonatype.org/</nexusUrl> -->
+<!--                     <autoReleaseAfterClose>true</autoReleaseAfterClose> -->
+<!--                 </configuration> -->
+<!--             </plugin> -->
         </plugins>
     </build>
 
